@@ -1,6 +1,7 @@
 #pragma warning disable CS0108
 
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class TankController : MonoBehaviour
 {
@@ -13,13 +14,15 @@ public class TankController : MonoBehaviour
     [SerializeField] private GameObject cannonPrefab;
     [SerializeField] private Transform firePos;
     [SerializeField] private AudioClip fireSfx;
-    [SerializeField] private AudioSource audio;
+
+    private AudioSource audio;
+    private CinemachineImpulseSource impulseSource;
 
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
-
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     void Update()
