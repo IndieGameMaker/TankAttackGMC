@@ -113,7 +113,7 @@ public class TankController : MonoBehaviour
     {
         // 각종 변수 초기화
         currHp = initHp;
-        hpBar.fillAmount = initHp;
+        hpBar.fillAmount = 1.0f;
 
         // 탱크를 다시 활성화
         SetVisibleTank(true);
