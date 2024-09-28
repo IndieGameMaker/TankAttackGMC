@@ -4,6 +4,8 @@ using Photon.Realtime;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
+    // a1b2a733-b17c-4d01-91d9-54adfce2e00b
+
     // 게임 버전 v1.0, v1.1, ...
     [SerializeField] private string version = "1.0";
 
