@@ -29,6 +29,7 @@ public class TankController : MonoBehaviour
 
     // 탱크 하위에 있는 모든 랜더러 컴포넌트를 저장
     private Renderer[] renderers;
+    private Canvas uiCanvas;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class TankController : MonoBehaviour
         cc = GameObject.Find("CinemachineCamera").GetComponent<CinemachineCamera>();
 
         renderers = GetComponentsInChildren<Renderer>();
+        uiCanvas = transform.Find("Canvas").GetComponent<Canvas>();
 
         if (pv.IsMine == true)
         {
