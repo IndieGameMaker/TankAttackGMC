@@ -16,5 +16,10 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         PhotonNetwork.GameVersion = version;
         // 유저명 설정
         PhotonNetwork.NickName = nickName;
+        // 방장이 씬을 로딩하면 자동으로 로딩하는 기능
+        PhotonNetwork.AutomaticallySyncScene = true;
+
+        // 포톤 서버(포톤 클라우드)에 접속
+        PhotonNetwork.ConnectUsingSettings();
     }
 }
