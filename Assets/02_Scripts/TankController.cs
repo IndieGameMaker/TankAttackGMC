@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.Cinemachine;
 using Photon.Pun;
 using TMPro;
+using Unity.VisualScripting;
 
 public class TankController : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class TankController : MonoBehaviour
     private PhotonView pv;
     private CinemachineCamera cc;
 
+    private float initHp = 100.0f;
+    private float currHp = 100.0f;
 
     void Start()
     {
@@ -72,6 +75,14 @@ public class TankController : MonoBehaviour
         audio.PlayOneShot(fireSfx, 0.8f);
         // 진동 발생
         impulseSource.GenerateImpulse();
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.collider.CompareTag("CANNON"))
+        {
+
+        }
     }
 
 }
