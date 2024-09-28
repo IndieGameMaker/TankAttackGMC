@@ -1,12 +1,17 @@
 using UnityEngine;
+using Photon.Pun;
 
 public class TurretController : MonoBehaviour
 {
     [SerializeField] private float turnSpeed = 10.0f;
 
+    private PhotonView pv;
+
     void Start()
     {
+        pv = GetComponentInParent<PhotonView>();
 
+        this.enabled = pv.IsMine;
     }
 
     // Update is called once per frame
