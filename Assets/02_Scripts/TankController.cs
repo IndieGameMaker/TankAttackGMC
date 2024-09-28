@@ -3,6 +3,7 @@
 using UnityEngine;
 using Unity.Cinemachine;
 using Photon.Pun;
+using TMPro;
 
 public class TankController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class TankController : MonoBehaviour
     [SerializeField] private GameObject cannonPrefab;
     [SerializeField] private Transform firePos;
     [SerializeField] private AudioClip fireSfx;
+    [SerializeField] private TMP_Text nickNameText;
 
     private AudioSource audio;
     private CinemachineImpulseSource impulseSource;
