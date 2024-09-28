@@ -29,6 +29,10 @@ public class TankController : MonoBehaviour
         pv = GetComponent<PhotonView>();
         cc = GameObject.Find("CinemachineCamera").GetComponent<CinemachineCamera>();
 
+        if (pv.IsMine == true)
+        {
+            cc.Target.TrackingTarget = transform;
+        }
     }
 
     void Update()
