@@ -19,6 +19,7 @@ public class TankController : MonoBehaviour
     private AudioSource audio;
     private CinemachineImpulseSource impulseSource;
     private PhotonView pv;
+    private CinemachineCamera cc;
 
 
     void Start()
@@ -26,6 +27,8 @@ public class TankController : MonoBehaviour
         audio = GetComponent<AudioSource>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
         pv = GetComponent<PhotonView>();
+        cc = GameObject.Find("CinemachineCamera").GetComponent<CinemachineCamera>();
+
     }
 
     void Update()
