@@ -23,6 +23,8 @@ public class Cannon : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
+        Instantiate(expEffect, transform.position, Quaternion.identity);
+
         Destroy(this.gameObject);
     }
 }
