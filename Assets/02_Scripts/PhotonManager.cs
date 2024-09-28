@@ -22,4 +22,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         // 포톤 서버(포톤 클라우드)에 접속
         PhotonNetwork.ConnectUsingSettings();
     }
+
+    #region 포톤_콜백_메소드
+
+    // 포톤 서버에 접속했을 때 호출되는 콜백 메소드
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log("포톤 서버 접속 성공");
+    }
+
+    #endregion
 }
