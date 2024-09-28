@@ -1,3 +1,5 @@
+#pragma warning disable CS0108
+
 using UnityEngine;
 
 public class TankController : MonoBehaviour
@@ -10,10 +12,12 @@ public class TankController : MonoBehaviour
 
     [SerializeField] private GameObject cannonPrefab;
     [SerializeField] private Transform firePos;
+    [SerializeField] private AudioClip fireSfx;
+    [SerializeField] private AudioSource audio;
 
     void Start()
     {
-
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
