@@ -49,6 +49,8 @@ public class TankController : MonoBehaviour
         Instantiate(cannonPrefab, firePos.position, firePos.rotation);
         // 사운드 발생
         audio.PlayOneShot(fireSfx, 0.8f);
+        // 진동 발생
+        impulseSource.GenerateImpulse();
     }
 
 }
