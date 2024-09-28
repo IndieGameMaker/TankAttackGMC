@@ -35,6 +35,10 @@ public class TankController : MonoBehaviour
         {
             cc.Target.TrackingTarget = transform;
         }
+        else
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
 
         nickNameText.text = pv.Owner.NickName;
     }
