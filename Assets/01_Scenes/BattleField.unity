@@ -1347,6 +1347,7 @@ MonoBehaviour:
   firePos: {fileID: 1612142452}
   fireSfx: {fileID: 8300000, guid: 955553523f42d4eccaa2fd190a336535, type: 3}
   audio: {fileID: 0}
+  expEffect: {fileID: 0}
 --- !u!1 &7027874789094435342
 GameObject:
   m_ObjectHideFlags: 0

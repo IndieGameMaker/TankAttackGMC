@@ -14,11 +14,12 @@ public class TankController : MonoBehaviour
     [SerializeField] private Transform firePos;
     [SerializeField] private AudioClip fireSfx;
     [SerializeField] private AudioSource audio;
-    [SerializeField] private GameObject expEffect;
+
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
+
     }
 
     void Update()
