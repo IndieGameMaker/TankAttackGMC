@@ -98,6 +98,18 @@ public class TankController : MonoBehaviour
     void TankDestroy()
     {
         SetVisibleTank(false);
+
+        //Invoke("RespawnTank", 3.0f);
+        Invoke(nameof(RespawnTank), 3.0f);
+    }
+
+    void RespawnTank()
+    {
+        // 각종 변수 초기화
+        currHp = initHp;
+
+        // 탱크를 다시 활성화
+        SetVisibleTank(true);
     }
 
     void SetVisibleTank(bool isVisible)
