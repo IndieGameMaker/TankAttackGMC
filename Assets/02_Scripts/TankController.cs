@@ -34,10 +34,18 @@ public class TankController : MonoBehaviour
         // Cannon 발사로직
         if (Input.GetMouseButtonDown(0) == true)
         {
-            // 동적으로 특정 프리팹을 생성
-            Instantiate(cannonPrefab, firePos.position, firePos.rotation);
+            Fire();
         }
     }
+
+    private void Fire()
+    {
+        // 동적으로 특정 프리팹을 생성
+        Instantiate(cannonPrefab, firePos.position, firePos.rotation);
+        // 사운드 발생
+        audio.PlayOneShot(fireSfx, 0.8f);
+    }
+
 }
 
 /*
