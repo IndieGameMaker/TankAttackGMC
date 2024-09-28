@@ -38,6 +38,15 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("포톤 로비에 입장 완료");
+
+        // 랜덤한 룸에 입장 요청
+        PhotonNetwork.JoinRandomRoom();
+    }
+
+    // 랜덤한 룸에 접속을 실패했을 때 호출되는 콜백
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        Debug.Log($"룸 접속 실패 : {returnCode}, 메시지 : {message}");
     }
 
     #endregion
