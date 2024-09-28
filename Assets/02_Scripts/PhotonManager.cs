@@ -70,6 +70,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("룸 입장 완료");
+        // 네트워크 탱크 생성
+        PhotonNetwork.Instantiate("Tank", new Vector3(0, 10.0f, 0), Quaternion.identity, 0);
     }
 
     #endregion
