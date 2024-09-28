@@ -120,6 +120,8 @@ public class TankController : MonoBehaviour
         {
             renderers[i].enabled = isVisible;
         }
+
+        uiCanvas.enabled = isVisible;
     }
 
 }
