@@ -51,10 +51,11 @@ public class TankController : MonoBehaviour
         // Cannon 발사로직
         if (Input.GetMouseButtonDown(0) == true)
         {
-            Fire();
+            pv.RPC("Fire", RpcTarget.AllViaServer);
         }
     }
 
+    [PunRPC]
     private void Fire()
     {
         // 동적으로 특정 프리팹을 생성
@@ -74,4 +75,12 @@ public class TankController : MonoBehaviour
 
     Vector3.zero = Vector3(0, 0, 0)
     Vector3.one  = Vector3(1, 1, 1)
+*/
+
+
+/*
+    RPC (Remote Procedure Call)
+
+
+
 */
