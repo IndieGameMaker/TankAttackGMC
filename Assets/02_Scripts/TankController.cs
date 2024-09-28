@@ -97,7 +97,15 @@ public class TankController : MonoBehaviour
 
     void TankDestroy()
     {
+        SetVisibleTank(false);
+    }
 
+    void SetVisibleTank(bool isVisible)
+    {
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].enabled = isVisible;
+        }
     }
 
 }
