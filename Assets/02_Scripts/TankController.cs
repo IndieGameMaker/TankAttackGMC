@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using Unity.Cinemachine;
+using Photon.Pun;
 
 public class TankController : MonoBehaviour
 {
@@ -17,16 +18,20 @@ public class TankController : MonoBehaviour
 
     private AudioSource audio;
     private CinemachineImpulseSource impulseSource;
+    private PhotonView pv;
 
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
+        pv = GetComponent<PhotonView>();
     }
 
     void Update()
     {
+        if (pv.IsMine == false) return;
+
         // 키입력값 받아오기
         v = Input.GetAxis("Vertical");   // -1.0f ~ 0.0f ~ +1.0f
         h = Input.GetAxis("Horizontal"); // -1.0f ~ 0.0f ~ +1.0f
