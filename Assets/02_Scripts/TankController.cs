@@ -35,6 +35,8 @@ public class TankController : MonoBehaviour
         {
             cc.Target.TrackingTarget = transform;
         }
+
+        nickNameText.text = pv.Owner.NickName;
     }
 
     void Update()

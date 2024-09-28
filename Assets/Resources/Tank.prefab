@@ -147,6 +147,7 @@ MonoBehaviour:
   cannonPrefab: {fileID: 3334471465894360203, guid: 6d3eaf06c5d0448938746ac298fdec66, type: 3}
   firePos: {fileID: 5111667422862796482}
   fireSfx: {fileID: 8300000, guid: 955553523f42d4eccaa2fd190a336535, type: 3}
+  nickNameText: {fileID: 7630269617957189617}
 --- !u!54 &7457063847235306496
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1019,6 +1020,7 @@ GameObject:
   - component: {fileID: 1647033231499684416}
   - component: {fileID: 2064225272642548832}
   - component: {fileID: 3267109806704159631}
+  - component: {fileID: 8151014816649023148}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1109,6 +1111,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8151014816649023148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826247661007681291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88afe5b312e40462596ac43e7ea168d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6389021699228577496
 GameObject:
   m_ObjectHideFlags: 0
