@@ -4,7 +4,7 @@ using UnityEngine;
 using Unity.Cinemachine;
 using Photon.Pun;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class TankController : MonoBehaviour
 {
@@ -31,6 +31,8 @@ public class TankController : MonoBehaviour
     private Renderer[] renderers;
     private Canvas uiCanvas;
 
+    private Image hpBar;
+
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -40,6 +42,7 @@ public class TankController : MonoBehaviour
 
         renderers = GetComponentsInChildren<Renderer>();
         uiCanvas = transform.Find("Canvas").GetComponent<Canvas>();
+        hpBar = transform.Find("Canvas/Panel/Image - Hpbar").GetComponent<Image>();
 
         if (pv.IsMine == true)
         {
@@ -89,6 +92,7 @@ public class TankController : MonoBehaviour
         if (coll.collider.CompareTag("CANNON"))
         {
             currHp -= 20.0f;
+            hpBar.fillAmount = currHp / initHp;
 
             if (currHp <= 0.0f)
             {
@@ -109,6 +113,7 @@ public class TankController : MonoBehaviour
     {
         // 각종 변수 초기화
         currHp = initHp;
+        hpBar.fillAmount = initHp;
 
         // 탱크를 다시 활성화
         SetVisibleTank(true);
