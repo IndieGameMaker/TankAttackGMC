@@ -27,12 +27,17 @@ public class TankController : MonoBehaviour
     private float initHp = 100.0f;
     private float currHp = 100.0f;
 
+    // 탱크 하위에 있는 모든 랜더러 컴포넌트를 저장
+    private Renderer[] renderers;
+
     void Start()
     {
         audio = GetComponent<AudioSource>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
         pv = GetComponent<PhotonView>();
         cc = GameObject.Find("CinemachineCamera").GetComponent<CinemachineCamera>();
+
+        renderers = GetComponentsInChildren<Renderer>();
 
         if (pv.IsMine == true)
         {
@@ -81,8 +86,18 @@ public class TankController : MonoBehaviour
     {
         if (coll.collider.CompareTag("CANNON"))
         {
+            currHp -= 20.0f;
 
+            if (currHp <= 0.0f)
+            {
+                TankDestroy();
+            }
         }
+    }
+
+    void TankDestroy()
+    {
+
     }
 
 }
