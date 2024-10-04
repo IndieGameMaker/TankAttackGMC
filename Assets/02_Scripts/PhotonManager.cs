@@ -186,6 +186,15 @@ public class PhotonManager : MonoBehaviourPunCallbacks
                 // 딕셔너리에 저장
                 roomDict.Add(room.Name, _room);
             }
+            else
+            {
+                // 이전에 생성된 룸 (룸의 변경사항 존재)
+                // 딕셔너리에 검색 후 룸 정보를 추출한 후 정보를 변경
+                if (roomDict.TryGetValue(room.Name, out GameObject tempRoom))
+                {
+                    tempRoom.GetComponent<RoomData>().RoomInfo = room; // 갱신된 룸 정보
+                }
+            }
         }
     }
 
