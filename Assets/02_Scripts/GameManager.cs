@@ -4,11 +4,13 @@ using Photon.Realtime;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [Header("UI")]
     [SerializeField] private Button exitButton;
+    [SerializeField] private TMP_Text connectInfoText;
 
     IEnumerator Start()
     {
