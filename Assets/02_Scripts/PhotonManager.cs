@@ -17,9 +17,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     [Header("UI")]
     [SerializeField] private TMP_InputField nickNameIF;
+    [SerializeField] private TMP_InputField roomNameIF;
 
     [Header("Button")]
     [SerializeField] private Button loginButton;
+    [SerializeField] private Button makeRoomButton;
 
     private void Awake()
     {
