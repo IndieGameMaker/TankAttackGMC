@@ -33,6 +33,29 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
     }
 
+    void Start()
+    {
+        // 버튼 클릭 이벤트 연결
+    }
+
+    public void OnLoginButtonClick()
+    {
+        // 닉네임이 비여있는지 확인
+        if (string.IsNullOrEmpty(nickNameIF.text))
+        {
+            // 닉네임을 무작위로 설정
+            nickName = $"USER_{Random.Range(0, 1001):0000}";
+            nickNameIF.text = nickName;
+        }
+
+        // 닉네임이 입력되었을 경우
+        nickName = nickNameIF.text;
+        // 포톤 닉네임 설정
+        PhotonNetwork.NickName = nickName;
+
+        PhotonNetwork.JoinRandomRoom();
+    }
+
     #region 포톤_콜백_메소드
 
     // 포톤 서버에 접속했을 때 호출되는 콜백 메소드
@@ -50,7 +73,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         Debug.Log("포톤 로비에 입장 완료");
 
         // 랜덤한 룸에 입장 요청
-        PhotonNetwork.JoinRandomRoom();
+        // PhotonNetwork.JoinRandomRoom();
     }
 
     // 랜덤한 룸에 접속을 실패했을 때 호출되는 콜백
