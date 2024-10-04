@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         // [MyRoom] (2/20)
         string str = $"[{roomName}] ({currPlayer}/{maxPlayer})";
+
+        connectInfoText.text = str;
     }
 
     public override void OnLeftRoom()
