@@ -36,11 +36,24 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        // 저장된 닉네임을 로드
+        nickName = PlayerPrefs.GetString("NICK_NAME", $"USER_{Random.Range(0, 1001):0000}");
+        nickNameIF.text = nickName;
+
         // 버튼 클릭 이벤트 연결 => goes to
         loginButton.onClick.AddListener(() => OnLoginButtonClick());
     }
 
     public void OnLoginButtonClick()
+    {
+        SetNickName();
+        // 닉네임을 저장
+        PlayerPrefs.SetString("NICK_NAME", nickName);
+
+        PhotonNetwork.JoinRandomRoom();
+    }
+
+    private void SetNickName()
     {
         // 닉네임이 비여있는지 확인
         if (string.IsNullOrEmpty(nickNameIF.text))
@@ -54,8 +67,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         nickName = nickNameIF.text;
         // 포톤 닉네임 설정
         PhotonNetwork.NickName = nickName;
-
-        PhotonNetwork.JoinRandomRoom();
     }
 
     #region 포톤_콜백_메소드
