@@ -166,11 +166,23 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         }
     }
 
+    // 룸 목록이 변경될 때마다 호출되는 콜백 메서드
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         foreach (var room in roomList)
         {
             Debug.Log($"{room.Name} ({room.PlayerCount}/{room.MaxPlayers})");
+
+            // 새로 생성된 룸, 변경된 부분을 처리
+            // 처음 생성된 룸 (딕셔너리에서 검색을 했을 때 결괏값이 없는 경우)
+            if (roomDict.ContainsKey(room.Name) == false)
+            {
+                // 처음 생성된 룸인 경우
+                var _room = Instantiate(roomPrefab, contentTr);
+
+                // 딕셔너리에 저장
+                roomDict.Add(room.Name, _room);
+            }
         }
     }
 
