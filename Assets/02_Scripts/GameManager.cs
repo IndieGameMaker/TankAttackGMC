@@ -18,10 +18,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] private TMP_Text msgListText;
     [SerializeField] private TMP_InputField chatMsgIF;
 
+    private PhotonView pv;
+
+    void Awake()
+    {
+        pv = GetComponent<PhotonView>();
+    }
 
     IEnumerator Start()
     {
         // 버튼 이벤트 연결
+        sendButton.onClick.AddListener(() => OnSendButtonClick());
         exitButton.onClick.AddListener(() => OnExitButtonClick());
 
         yield return new WaitForSeconds(0.5f);
@@ -41,6 +48,20 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         // 네트워크 탱크 생성
         PhotonNetwork.Instantiate("Tank", pos, Quaternion.identity, 0);
+    }
+
+    // 송수신할 RPC 함수 => 채팅 목록에 문자열을 추가
+    [PunRPC]
+    public void DisplayMessage(string msg)
+    {
+        msgListText.text += msg + "\n";
+    }
+
+    private void OnSendButtonClick()
+    {
+        // <color=#00ff00>[닉네임]</color> 메시지
+        string msg = $"<color=#00ff00>[{PhotonNetwork.NickName}]</color> {chatMsgIF.text}";
+        pv.RPC(nameof(DisplayMessage), RpcTarget.AllBufferedViaServer, msg);
     }
 
     private void OnExitButtonClick()
@@ -87,11 +108,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         DisplayConnectInfo();
         DisplayPlayerList();
+
+        string msg = $"<color=#00ff00>[{newPlayer.NickName}]</color> is joined room.";
+        DisplayMessage(msg);
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         DisplayConnectInfo();
         DisplayPlayerList();
+        string msg = $"<color=#ff0000>[{otherPlayer.NickName}]</color> was left room.";
+        DisplayMessage(msg);
     }
 }
