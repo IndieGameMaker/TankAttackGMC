@@ -53,7 +53,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         // 포톤 닉네임 설정
         PhotonNetwork.NickName = nickName;
 
-        PhotonNetwork.JoinRandomRoom();
+        // PhotonNetwork.JoinRandomRoom();
     }
 
     #region 포톤_콜백_메소드
