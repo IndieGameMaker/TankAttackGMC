@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Header("UI")]
     [SerializeField] private Button exitButton;
     [SerializeField] private TMP_Text connectInfoText;
+    [SerializeField] private TMP_Text playerListText;
 
     IEnumerator Start()
     {
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         CreateTank();
 
         DisplayConnectInfo();
+        DisplayPlayerList();
     }
 
     private void CreateTank()
@@ -52,6 +54,22 @@ public class GameManager : MonoBehaviourPunCallbacks
         string str = $"[{roomName}] ({currPlayer}/{maxPlayer})";
 
         connectInfoText.text = str;
+    }
+
+    // 현재 접속자 명 출력
+    private void DisplayPlayerList()
+    {
+        string playerList = "";
+
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            // 방장일 경우 Red 변경
+            string _color = player.IsMasterClient ? "#ff0000" : "#00ff00";
+
+            playerList += $"<color={_color}>{player.NickName}</color>\n";
+        }
+
+        playerListText.text = playerList;
     }
 
     public override void OnLeftRoom()
