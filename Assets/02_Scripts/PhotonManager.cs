@@ -36,7 +36,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        // 버튼 클릭 이벤트 연결
+        // 버튼 클릭 이벤트 연결 => goes to
+        loginButton.onClick.AddListener(() => OnLoginButtonClick());
     }
 
     public void OnLoginButtonClick()
