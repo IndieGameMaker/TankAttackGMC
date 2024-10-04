@@ -173,6 +173,20 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             Debug.Log($"{room.Name} ({room.PlayerCount}/{room.MaxPlayers})");
 
+            // 삭제된 룸 여부를 확인
+            if (room.RemovedFromList == true)
+            {
+                // 룸 삭제 로직
+                if (roomDict.TryGetValue(room.Name, out var tempRoom))
+                {
+                    // 룸 프리팹 삭제
+                    Destroy(tempRoom);
+                    // 딕셔너리에서 해당 룸 정보를 삭제
+                    roomDict.Remove(room.Name);
+                }
+                continue;
+            }
+
             // 새로 생성된 룸, 변경된 부분을 처리
             // 처음 생성된 룸 (딕셔너리에서 검색을 했을 때 결괏값이 없는 경우)
             if (roomDict.ContainsKey(room.Name) == false)
