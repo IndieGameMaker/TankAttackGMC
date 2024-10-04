@@ -1,3 +1,4 @@
+using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
@@ -22,6 +23,11 @@ public class RoomData : MonoBehaviour
         {
             roomInfo = value;
             roomText.text = $"{roomInfo.Name} ({roomInfo.PlayerCount}/{roomInfo.MaxPlayers})";
+            // 버튼 클릭 이벤트 연결
+            GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
+            {
+                PhotonNetwork.JoinRoom(roomInfo.Name);
+            });
         }
     }
 
