@@ -1489,7 +1489,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1.0
   nickNameIF: {fileID: 1219438902}
+  roomNameIF: {fileID: 1082839144}
   loginButton: {fileID: 501501916}
+  makeRoomButton: {fileID: 848467617}
 --- !u!4 &960198681
 Transform:
   m_ObjectHideFlags: 0
