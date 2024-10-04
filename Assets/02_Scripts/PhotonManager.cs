@@ -4,6 +4,7 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
@@ -153,6 +154,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             // SceneManager.LoadScene
             PhotonNetwork.LoadLevel("BattleField");
+        }
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        foreach (var room in roomList)
+        {
+            Debug.Log($"{room.Name} ({room.PlayerCount}/{room.MaxPlayers})");
         }
     }
 
