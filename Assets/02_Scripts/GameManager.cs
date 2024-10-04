@@ -80,10 +80,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         DisplayConnectInfo();
+        DisplayPlayerList();
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         DisplayConnectInfo();
+        DisplayPlayerList();
     }
 }
