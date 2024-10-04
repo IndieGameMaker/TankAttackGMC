@@ -56,4 +56,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         SceneManager.LoadScene("Lobby");
     }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        DisplayConnectInfo();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        DisplayConnectInfo();
+    }
 }
