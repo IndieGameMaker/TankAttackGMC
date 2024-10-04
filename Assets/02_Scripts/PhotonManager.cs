@@ -24,6 +24,15 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     [SerializeField] private Button loginButton;
     [SerializeField] private Button makeRoomButton;
 
+    [Header("Room List")]
+    // 룸 아이템 프리팹
+    [SerializeField] private GameObject roomPrefab;
+    // 룸 아이템을 생성할 부모객체
+    [SerializeField] private Transform contentTr;
+    // 룸 목록을 저장할 딕셔너리 데이터를 선언
+    private Dictionary<string, GameObject> roomDict = new Dictionary<string, GameObject>();
+
+
     private void Awake()
     {
         // 게임 버전 설정
