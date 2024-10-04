@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
@@ -53,7 +54,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         // 포톤 닉네임 설정
         PhotonNetwork.NickName = nickName;
 
-        // PhotonNetwork.JoinRandomRoom();
+        PhotonNetwork.JoinRandomRoom();
     }
 
     #region 포톤_콜백_메소드
@@ -110,7 +111,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("룸 입장 완료");
         // 네트워크 탱크 생성
-        PhotonNetwork.Instantiate("Tank", new Vector3(0, 10.0f, 0), Quaternion.identity, 0);
+        // PhotonNetwork.Instantiate("Tank", new Vector3(0, 10.0f, 0), Quaternion.identity, 0);
+
+        // 방장만 씬을 호출할 수 있음.
+        if (PhotonNetwork.IsMasterClient)
+        {
+            // SceneManager.LoadScene
+            PhotonNetwork.LoadLevel("BattleField");
+        }
     }
 
     #endregion
