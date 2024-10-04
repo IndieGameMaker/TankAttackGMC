@@ -10,7 +10,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     [SerializeField] private string version = "1.0";
 
     // 유저명 (닉네임)
-    [SerializeField] private string nickName = "Zack";
+    private string nickName = "Zack";
 
     private void Awake()
     {
@@ -60,6 +60,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         };
         // 룸 생성
         PhotonNetwork.CreateRoom("MyRoom", ro);
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+
     }
 
     // 룸 생성 완료 콜백
