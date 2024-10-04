@@ -10,8 +10,14 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     [Header("UI")]
     [SerializeField] private Button exitButton;
+    [SerializeField] private Button sendButton;
+
     [SerializeField] private TMP_Text connectInfoText;
     [SerializeField] private TMP_Text playerListText;
+
+    [SerializeField] private TMP_Text msgListText;
+    [SerializeField] private TMP_InputField chatMsgIF;
+
 
     IEnumerator Start()
     {
