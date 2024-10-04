@@ -62,6 +62,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom("MyRoom", ro);
     }
 
+    // 룸생성 실패시 호출되는 콜백
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
 
