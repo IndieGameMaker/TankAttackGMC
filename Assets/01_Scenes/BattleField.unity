@@ -910,6 +910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitButton: {fileID: 1211112882}
+  connectInfoText: {fileID: 1704369495}
 --- !u!4 &660176844
 Transform:
   m_ObjectHideFlags: 0

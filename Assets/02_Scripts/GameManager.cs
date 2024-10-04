@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(0.5f);
 
         CreateTank();
+
+        DisplayConnectInfo();
     }
 
     private void CreateTank()
@@ -37,6 +39,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         // 방을 나가겠다는 요청 (로비 복귀 요청)
         PhotonNetwork.LeaveRoom();
+    }
+
+    // 현재 접속자 정보를 출력
+    private void DisplayConnectInfo()
+    {
+        int currPlayer = PhotonNetwork.CurrentRoom.PlayerCount;
+        int maxPlayer = PhotonNetwork.CurrentRoom.MaxPlayers;
+        string roomName = PhotonNetwork.CurrentRoom.Name;
+
+        // [MyRoom] (2/20)
+        string str = $"[{roomName}] ({currPlayer}/{maxPlayer})";
     }
 
     public override void OnLeftRoom()
