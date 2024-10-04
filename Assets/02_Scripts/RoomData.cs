@@ -33,6 +33,9 @@ public class RoomData : MonoBehaviour
 
     void Awake()
     {
+        var photonManager = GameObject.Find("PhotonManager").GetComponent<PhotonManager>();
+
+
         // 자신의 Child에 있는 Text를 추출
         roomText = GetComponentInChildren<TMP_Text>();
     }

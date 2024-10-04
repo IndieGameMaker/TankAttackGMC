@@ -82,6 +82,10 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         ro.IsOpen = true;
         ro.IsVisible = true;
 
+        // 닉네임 설정
+        PhotonNetwork.NickName = nickNameIF.text;
+        PlayerPrefs.SetString("NICK_NAME", nickNameIF.text);
+
         // 룸 생성
         PhotonNetwork.CreateRoom(roomNameIF.text, ro);
     }
