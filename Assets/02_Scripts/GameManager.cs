@@ -2,11 +2,19 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPunCallbacks
 {
+    [Header("UI")]
+    [SerializeField] private Button exitButton;
+
     IEnumerator Start()
     {
+        // 버튼 이벤트 연결
+        exitButton.onClick.AddListener(() => OnExitButtonClick());
+
         yield return new WaitForSeconds(0.5f);
 
         CreateTank();
@@ -21,5 +29,16 @@ public class GameManager : MonoBehaviour
 
         // 네트워크 탱크 생성
         PhotonNetwork.Instantiate("Tank", pos, Quaternion.identity, 0);
+    }
+
+    private void OnExitButtonClick()
+    {
+        // 방을 나가겠다는 요청 (로비 복귀 요청)
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene("Lobby");
     }
 }
