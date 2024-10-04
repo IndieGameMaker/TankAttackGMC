@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -11,6 +13,12 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     // 유저명 (닉네임)
     private string nickName = "Zack";
+
+    [Header("UI")]
+    [SerializeField] private TMP_InputField nickNameIF;
+
+    [Header("Button")]
+    [SerializeField] private Button loginButton;
 
     private void Awake()
     {
