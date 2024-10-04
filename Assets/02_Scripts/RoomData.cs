@@ -26,15 +26,17 @@ public class RoomData : MonoBehaviour
             // 버튼 클릭 이벤트 연결
             GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
             {
+                PhotonNetwork.NickName = photonManager.nickNameIF.text;
                 PhotonNetwork.JoinRoom(roomInfo.Name);
             });
         }
     }
 
+    PhotonManager photonManager;
+
     void Awake()
     {
-        var photonManager = GameObject.Find("PhotonManager").GetComponent<PhotonManager>();
-
+        photonManager = GameObject.Find("PhotonManager").GetComponent<PhotonManager>();
 
         // 자신의 Child에 있는 Text를 추출
         roomText = GetComponentInChildren<TMP_Text>();

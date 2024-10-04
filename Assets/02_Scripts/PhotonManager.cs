@@ -17,7 +17,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     private string nickName = "Zack";
 
     [Header("UI")]
-    [SerializeField] private TMP_InputField nickNameIF;
+    [SerializeField] public TMP_InputField nickNameIF;
     [SerializeField] private TMP_InputField roomNameIF;
 
     [Header("Button")]
