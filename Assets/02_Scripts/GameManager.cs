@@ -20,6 +20,6 @@ public class GameManager : MonoBehaviour
                                   Random.Range(-20.0f, 20.0f));
 
         // 네트워크 탱크 생성
-        PhotonNetwork.Instantiate("Tank", new Vector3(0, 10.0f, 0), Quaternion.identity, 0);
+        PhotonNetwork.Instantiate("Tank", pos, Quaternion.identity, 0);
     }
 }
