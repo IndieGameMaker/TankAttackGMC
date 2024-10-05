@@ -95,6 +95,9 @@ public class TankController : MonoBehaviour
             currHp -= 20.0f;
             hpBar.fillAmount = currHp / initHp;
 
+            int actorNumber = coll.gameObject.GetComponent<Cannon>().actorNumber;
+            Debug.Log(actorNumber);
+
             if (currHp <= 0.0f)
             {
                 TankDestroy();
