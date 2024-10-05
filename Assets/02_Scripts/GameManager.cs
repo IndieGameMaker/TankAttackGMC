@@ -8,6 +8,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
+    public static GameManager instance;
+
     [Header("UI")]
     [SerializeField] private Button exitButton;
     [SerializeField] private Button sendButton;
@@ -22,6 +24,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
+        // 싱글턴 변수에 할당
+        instance = this;
+
         pv = GetComponent<PhotonView>();
     }
 

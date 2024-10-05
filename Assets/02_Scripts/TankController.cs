@@ -5,6 +5,7 @@ using Unity.Cinemachine;
 using Photon.Pun;
 using TMPro;
 using UnityEngine.UI;
+using Photon.Realtime;
 
 public class TankController : MonoBehaviour
 {
@@ -96,10 +97,14 @@ public class TankController : MonoBehaviour
             hpBar.fillAmount = currHp / initHp;
 
             int actorNumber = coll.gameObject.GetComponent<Cannon>().actorNumber;
-            Debug.Log(actorNumber);
+            // ActorNumber -> NickName
+            Player shooter = PhotonNetwork.CurrentRoom.GetPlayer(actorNumber);
 
             if (currHp <= 0.0f)
             {
+                // 자신닉네임 님은 상대편에 피격당했습니다.
+                string msg = $"<color=#00ff00>{pv.Owner.NickName}</color> 님은 <color=#ff0000>{shooter.NickName}</color>에게 피격당했습니다.";
+
                 TankDestroy();
             }
         }
