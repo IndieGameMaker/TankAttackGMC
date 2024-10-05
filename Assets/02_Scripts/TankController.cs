@@ -103,8 +103,8 @@ public class TankController : MonoBehaviour
             if (currHp <= 0.0f)
             {
                 // 자신닉네임 님은 상대편에 피격당했습니다.
-                string msg = $"<color=#00ff00>{pv.Owner.NickName}</color> 님은 <color=#ff0000>{shooter.NickName}</color>에게 피격당했습니다.";
-
+                string msg = $"<color=#00ff00>{pv.Owner.NickName}</color>님은 <color=#ff0000>{shooter.NickName}</color>에게 피격당했습니다.";
+                GameManager.instance.DisplayMessage(msg);
                 TankDestroy();
             }
         }
