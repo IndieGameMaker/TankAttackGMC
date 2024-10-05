@@ -72,15 +72,16 @@ public class TankController : MonoBehaviour
         // Cannon 발사로직
         if (Input.GetMouseButtonDown(0) == true)
         {
-            pv.RPC("Fire", RpcTarget.AllViaServer);
+            pv.RPC("Fire", RpcTarget.AllViaServer, pv.Owner.ActorNumber);
         }
     }
 
     [PunRPC]
-    private void Fire()
+    private void Fire(int actorNumber)
     {
         // 동적으로 특정 프리팹을 생성
-        Instantiate(cannonPrefab, firePos.position, firePos.rotation);
+        var cannon = Instantiate(cannonPrefab, firePos.position, firePos.rotation);
+        cannon.GetComponent<Cannon>().actorNumber = actorNumber;
         // 사운드 발생
         audio.PlayOneShot(fireSfx, 0.8f);
         // 진동 발생

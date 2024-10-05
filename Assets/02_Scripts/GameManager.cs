@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         msgListText.text += msg + "\n";
     }
 
-    private void OnSendButtonClick()
+    public void OnSendButtonClick()
     {
         // <color=#00ff00>[닉네임]</color> 메시지
         string msg = $"<color=#00ff00>[{PhotonNetwork.NickName}]</color> {chatMsgIF.text}";

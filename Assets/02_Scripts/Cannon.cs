@@ -5,6 +5,9 @@ public class Cannon : MonoBehaviour
     [SerializeField] private float force = 1500.0f;
     [SerializeField] private GameObject expEffect;
 
+    // 발사한 유저의 ID
+    public int actorNumber;
+
     private Rigidbody rb;
 
     void Awake()
